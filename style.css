@@ -1,0 +1,116 @@
+body {
+    background-color: rgb(240, 235, 248);
+    display: flex;
+    direction: ltr;
+    display: block;
+    height: 3268.38px;
+    margin: 0px;
+    unicode-bidi: isolate;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    height: 3268.38px;
+}
+
+.main {
+    display: block;
+    height: 3268.38px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    max-width: auto;
+    width: 640px;
+}
+
+.head {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(218, 220, 224);
+    border-radius: 8px;
+    border-style: 1px solid rgb(218, 220, 224);
+    display: block;
+    height: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+    padding-top: 22px;
+    padding: 24px;
+    position: relative;
+}
+
+.quadrante.div {
+    padding-bottom: 12px;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px
+}
+
+.linha {
+    background-color: rgb(103, 58, 183);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: rgb(255, 255, 255);
+    height: 10px;
+    left: -1px;
+    right: -1px;
+    overflow-wrap: break-word;
+    position: absolute;
+    top: -1px;
+}
+
+.titulo {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-box-pack: justify;
+}
+
+.titulo.div {
+    color: rgb(32, 33, 36);
+    unicode-bidi: isolate;
+    font-weight: 400;
+}
+
+
+.quest {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(218, 220, 224);
+    border-radius: 8px;
+    border-style: solid;
+    display: block; 
+    border-width: 1px; 
+    break-inside: avoid; 
+    margin-bottom: 12px; 
+    padding: 24px; 
+    transition-duration: 0.2s; 
+    transition-timing-function: cubic-bezier(1, 0, 0, 1)cubic-bezier(0, 0, 0.2, 1);
+}
+.pergunta{
+    color: rgb(32, 33, 36);
+    display: flex;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    width: 150.688px;
+    word-break: break-word;
+}
+.p1{
+    align-items: flex-start;
+    box-sizing: border-box;
+    color: rgb(32, 33, 36);
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    height: 96px;
+    max-width: 100%;
+    min-width: 0%;
+    position: relative;
+    width :150.688px;
+    -webkit-box-align: start;
+}
