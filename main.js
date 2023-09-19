@@ -471,3 +471,32 @@ _docs_flag_initialData = {
     textoDeTras.style.display = 'block';
   }
 }
+function toggleColor(elementId, disableId) {
+    var element = document.getElementById(elementId);
+    var disableElement = document.getElementById(disableId);
+
+    // Check if the clicked element is already selected
+    if (element.classList.contains('selected')) {
+      return; // Exit the function if it's already selected
+    }
+
+    // Toggle the 'selected' class on the clicked element
+    element.classList.add('selected');
+
+    // Remove the 'selected' class from the other element to disable it
+    if (disableElement) {
+      disableElement.classList.remove('selected');
+    }
+
+    // Display a message based on the selected element
+    var botFMessage = document.getElementById('botFMessage');
+    var botMMessage = document.getElementById('botMMessage');
+
+    if (elementId === 'botF') {
+      botFMessage.style.display = 'block';
+      botMMessage.style.display = 'none';
+    } else if (elementId === 'botM') {
+      botFMessage.style.display = 'none';
+      botMMessage.style.display = 'block';
+    }
+  }

@@ -264,39 +264,6 @@
                                 <div class="nWQGrd zwllIb">
                                   <label for="i14" class="docssharedWizToggleLabeledContainer ajBQVb RDPZE">
                                     <div class="bzfPab wFGF8" onclick="toggleColor('botF','botM')" id="otherDiv">
-                                      <script>
-                                        function toggleColor(elementId, disableId) {
-                                          var element = document.getElementById(elementId);
-                                          var disableElement = document.getElementById(disableId);
-
-                                          // Check if the clicked element is already selected
-                                          if (element.classList.contains('selected')) {
-                                            return; // Exit the function if it's already selected
-                                          }
-
-                                          // Toggle the 'selected' class on the clicked element
-                                          element.classList.add('selected');
-
-                                          // Remove the 'selected' class from the other element to disable it
-                                          if (disableElement) {
-                                            disableElement.classList.remove('selected');
-                                          }
-
-                                          // Display a message based on the selected element
-                                          var botFMessage = document.getElementById('botFMessage');
-                                          var botMMessage = document.getElementById('botMMessage');
-
-                                          if (elementId === 'botF') {
-                                            botFMessage.style.display = 'block';
-                                            botMMessage.style.display = 'none';
-                                          } else if (elementId === 'botM') {
-                                            botFMessage.style.display = 'none';
-                                            botMMessage.style.display = 'block';
-                                          }
-                                        }
-
-
-                                      </script>
                                       <div class="d7L4fc bJNwt  FXLARc aomaEc ECvBRb" id="botF">
                                         <div id="i14" class="Od2TWd hYsg7c RDPZE" jscontroller="EcW08c"
                                           jsaction="keydown:I481le;dyRcpb:dyRcpb;click:cOuCgd; mousedown:UX7yZ; mouseup:lbsD7e; mouseenter:tfO1Yc; mouseleave:JywGue; focus:AHmuwe; blur:O22p3e; contextmenu:mg9Pef;touchstart:p6p2H; touchmove:FwuNnf; touchend:yfqBxc(preventMouseEvents=true|preventDefault=true); touchcancel:JMtRjd;"
