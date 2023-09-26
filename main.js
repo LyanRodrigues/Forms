@@ -1,3 +1,36 @@
+// Get a reference to the select element
+var selectElement = document.getElementById("input9");
+
+// Add an event listener to the select element
+selectElement.addEventListener("change", function () {
+    // Get the selected option
+    var selectedOption = selectElement.options[selectElement.selectedIndex];
+
+    // Check if the selected option's value is "Escolher"
+    if (selectedOption.value === " ") {
+        // Call the "troca" function
+        troca('input9', 'div9');
+    }
+});
+
+function toggleDropdown() {
+  var dropdown = document.getElementById("myDropdown");
+  if (dropdown.style.display === "block") {
+    dropdown.style.display = "none";
+  } else {
+    dropdown.style.display = "block";
+  }
+}
+
+// Add event listeners to dropdown items
+var items = document.querySelectorAll('.dropdown-table div[data-value]');
+items.forEach(function (item) {
+  item.addEventListener('click', function () {
+    var selectedValue = this.getAttribute('data-value');
+    document.querySelector('.dropdown-button').textContent = selectedValue;
+    toggleDropdown();
+  });
+});
 _docs_flag_initialData = {
     "docs-ails": "docs_cold",
     "docs-fwds": "docs_nf",

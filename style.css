@@ -1,3 +1,116 @@
+.botao_select{
+  height: 34px;
+  width: 223;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  background-color: #ffff;
+  border: 1px solid #ffffff;
+  color: #9AA0A6;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.e2CuFe eU809d{
+  right: 19px;
+  top: 15px;
+  border-width: 5px;
+}
+
+/* Add CSS styles for the dropdown */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px; /* Add margin for spacing */
+}
+
+.dropdown-button {
+  background-color: #1a73e8; /* Google Forms blue */
+  color: white;
+  padding: 10px 20px; /* Increase padding for a larger button */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold; /* Make the text bold */
+  transition: background-color 0.3s; /* Add a smooth hover effect */
+}
+
+/* Change button color on hover */
+.dropdown-button:hover {
+  background-color: #0d47a1; /* Darker blue on hover */
+}
+
+.dropdown-table {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  max-height: 200px; /* Set a max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ccc;
+  border-top: none;
+  display: none;
+}
+
+.dropdown-table div {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* Add hover effect for options */
+.dropdown-table div:hover {
+  background-color: #f2f2f2;
+}
+/* Style for selected items */
+.selected {
+  background-color: #4CAF50;
+  color: white;
+}
+.google-checkbox {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.google-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.google-checkbox label {
+  position: relative;
+  padding-left: 30px; /* Adjust as needed for spacing */
+  cursor: pointer;
+}
+
+.google-checkbox label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; /* Adjust as needed for checkbox size */
+  height: 20px; /* Adjust as needed for checkbox size */
+  border: 2px solid #4285f4; /* Google's blue color */
+  background-color: white;
+}
+
+.google-checkbox input[type="checkbox"]:checked + label::before {
+  background-color: #4285f4; /* Google's blue color when checked */
+}
+
+/* Display an 'x' inside the checked checkbox */
+.google-checkbox input[type="checkbox"]:checked + label::before::after {
+  content: "✕"; /* 'x' symbol */
+  font-size: 16px; /* Adjust as needed for symbol size */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .bJNwt:hover {
     background-color: rgb(103, 58, 183); /* Change color on hover */
