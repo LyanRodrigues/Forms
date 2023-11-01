@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Paradesporto Escolar - Fevereiro 2023</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .container {
+            background-color: #ffffff;
+            /* White background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            /* Left-align text */
+        }
+
+        h1 {
+            color: #000000;
+            /* Google's blue color */
+        }
+
+        ul {
+            padding-left: 0px;
+            margin-top: 5px;
+
+        }
+
+        .w3-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            cursor:text;
+        }
+
+
+        .w3-btn {
+            background-color: #4285f4;
+            /* Google's blue color */
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .w3-btn:hover {
+            background-color: #2a62bb;
+            /* Darker blue on hover */
+        }
+
+        /* Customize form field appearance */
+        input[type="text"],
+        select,
+        textarea {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Customize form label appearance */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            /* Dark gray text color */
+            font-weight: bold;
+       }
+       
+
+        /* Customize form button appearance */
+        button[type="submit"] {
+            background-color: #4285f4;
+            /* Google's blue color */
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 50px
+        }
+
+        button[type="submit"]:hover {
+            background-color: #2a62bb;
+            /* Darker blue on hover */
+        }
+
+        spam {
+            margin-top: 200px;
+            color: #d93025;
+        }
+
+        label {
+            padding-top: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox-group div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+            /* Adjust the margin as needed */
+        }
+
+        .checkbox-group label {
+            margin-left: 5px;
+            /* Adjust the margin as needed */
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Relatório Paradesporto Escolar - Fevereiro 2023</h1>
+        <ul>Relatório de frequência das aulas presenciais. <br></ul>
+        <ul>
+            <spam>* Indica pergunta obrigatória</spam>
+        </ul>
+
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+
+            <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem
+                abreviaturas).
+                <spam>*</spam>
+            </label>
+            <input type="text" class="w3-input" id="{{ form.participant_name.id_for_label }}"
+                name="{{ form.participant_name.name }}" required>
+
+            <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
+                <spam>*</spam>
+            </label>
+            {{ form.birth_date }}
+
+
+            <label for="{{ form.gender.id_for_label }}">3 - Sexo do participante:
+                <spam>*</spam>
+            </label>
+            {{ form.gender }}
+            
+            <label>4 - Deficiência do Participante: <spam>*</spam></label>
+            {{ form.participant_disability }}
+            
+
+            
+            
+            <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
+                <spam>*</spam>
+            </label>
+            {{ form.clinical_diagnosis }}
+
+            <label for="{{ form.functional_profile.id_for_label }}">6 - Perfil funcional da Deficiência e do
+                participante:
+                <spam>*</spam>
+            </label>
+            {{ form.functional_profile }}
+
+            <label for="{{ form.participation_modalities.id_for_label }}">7 - Participa em qual modalidade?
+                <spam>*</spam>
+            </label>
+            {{ form.participation_modalities }}
+
+            <label for="{{ form.participation_observations.id_for_label }}">8 - Observações da participação do
+                participante neste mês.</label>
+            {{ form.participation_observations }}
+
+            <label for="{{ form.attendance_frequency.id_for_label }}">9 - Quantas vezes o participante frequentou nas
+                aulas neste mês?
+                <spam>*</spam>
+            </label>
+            {{ form.attendance_frequency }}
+
+            <label for="{{ form.attended_dates.id_for_label }}">10 - Quais as datas frequentou neste mês: (Exemplo
+                2,4,6...).
+                <spam>*</spam>
+            </label>
+            {{ form.attended_dates }}
+
+            <label for="{{ form.absences_count.id_for_label }}">11 - Número de faltas neste mês?</label>
+            {{ form.absences_count }}
+
+            <label for="{{ form.absent_dates.id_for_label }}">12 - Quais as datas que não frequentou este mês: (Exemplo
+                10,12,14...).</label>
+            {{ form.absent_dates }}
+
+            <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda: (Observação:
+                Nome completo da escola, sem abreviaturas). <spam>*</spam></label>
+            {{ form.school_name }}
+
+            <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
+            {{ form.additional_observations }}
+
+            <label for="{{ form.dropout_list.id_for_label }}">15 - Listar participante desistente:</label>
+            {{ form.dropout_list }}
+
+            <label for="{{ form.dropout_reason.id_for_label }}">16 - Motivo da desistência:</label>
+            {{ form.dropout_reason }}
+
+            <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
+                <spam>*</spam>
+            </label>
+            {{ form.responding_teacher_name }}
+
+            <!-- Add other form fields as needed -->
+
+            <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
+            <ul class="errorlist">
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}:
+                        <ul class="errorlist">
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+</body>
+
+</html>
