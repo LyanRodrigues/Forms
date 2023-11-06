@@ -1,8 +1,20 @@
 from django import forms
-from .models import ParticipantResponse
-from .models import Disability
+from .models import ParticipantResponse, Disability
 
 class ParticipantResponseForm(forms.ModelForm):
+    PARTICIPANT_DISABILITY_CHOICES = [
+        ('option1', 'Option 1 Label'),
+        ('option2', 'Option 2 Label'),
+        # Add more options as needed
+    ]
+
+    participant_disability = forms.MultipleChoiceField(
+        choices=PARTICIPANT_DISABILITY_CHOICES,
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        label='4 - Deficiência do Participante'
+    )
+
     class Meta:
         model = ParticipantResponse
         exclude = []  

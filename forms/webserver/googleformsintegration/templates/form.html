@@ -49,7 +49,7 @@
             padding: 10px;
             margin-bottom: 20px;
             box-sizing: border-box;
-            cursor:text;
+            cursor: text;
         }
 
 
@@ -88,8 +88,8 @@
             color: #555555;
             /* Dark gray text color */
             font-weight: bold;
-       }
-       
+        }
+
 
         /* Customize form button appearance */
         button[type="submit"] {
@@ -140,7 +140,20 @@
             margin-left: 5px;
             /* Adjust the margin as needed */
         }
-        
+
+        /* Customize radio button appearance */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .radio-group input {
+            margin-bottom: 5px;
+        }
+
+        .radio-group label {
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -168,17 +181,33 @@
             {{ form.birth_date }}
 
 
-            <label for="{{ form.gender.id_for_label }}">3 - Sexo do participante:
-                <spam>*</spam>
-            </label>
-            {{ form.gender }}
-            
-            <label>4 - Deficiência do Participante: <spam>*</spam></label>
-            {{ form.participant_disability }}
-            
+            <label for="{{ form.gender.id_for_label }}">3 - Sexo do participante: <spam>*</spam></label>
+            <div class="radio-group">
+                {{ form.gender }}
+            </div>
 
-            
-            
+            <!-- Your other form fields... -->
+
+            <!-- Example checkbox group -->
+            <div class="form-group">
+                <label>4 - Deficiência do Participante: <span>*</span></label>
+                <div class="checkbox-group">
+                    {% for choice in form.participant_disability %}
+                    <div class="form-check">
+                        {{ choice }}
+                        <label class="form-check-label" for="{{ choice.id_for_label }}">
+                            {{ choice.choice_label }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Your other form fields... -->
+
+
+
+
             <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
                 <spam>*</spam>
             </label>
@@ -241,17 +270,17 @@
             <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
             <ul class="errorlist">
                 {% for field, errors in form.errors.items %}
-                    <li>{{ field }}:
-                        <ul class="errorlist">
-                            {% for error in errors %}
-                                <li>{{ error }}</li>
-                            {% endfor %}
-                        </ul>
-                    </li>
+                <li>{{ field }}:
+                    <ul class="errorlist">
+                        {% for error in errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
                 {% endfor %}
             </ul>
-        {% endif %}
-    </form>
+            {% endif %}
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

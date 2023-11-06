@@ -14,7 +14,7 @@ def form_view(request):
         form = ParticipantResponseForm()
 
     # Set dynamic choices for the disability field
-    form.fields['participant_disability'].choices = ParticipantResponse.PARTICIPANT_DISABILITY_CHOICES
+    
 
     return render(request, 'form.html', {'form': form})
 
