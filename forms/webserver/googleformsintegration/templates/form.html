@@ -111,7 +111,7 @@
             /* Darker blue on hover */
         }
 
-        spam {
+        span {
             margin-top: 200px;
             color: #d93025;
         }
@@ -154,6 +154,21 @@
         .radio-group label {
             margin-left: 5px;
         }
+
+        .answer_label {
+            color: rgb(197, 197, 197);
+        }
+
+        option {
+            color: #000000;
+        }
+    </style>
+
+
+    <style>
+        .red-border {
+            border: 1px solid #d93025;
+        }
     </style>
 </head>
 
@@ -162,65 +177,65 @@
         <h1>Relatório Paradesporto Escolar - Fevereiro 2023</h1>
         <ul>Relatório de frequência das aulas presenciais. <br></ul>
         <ul>
-            <spam>* Indica pergunta obrigatória</spam>
+            <span>* Indica pergunta obrigatória</span>
         </ul>
 
-        <form method="post" class="needs-validation" novalidate>
+        <form method="post" class="needs-validation" novalidate id="reportForm">
             {% csrf_token %}
 
             <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem
                 abreviaturas).
-                <spam>*</spam>
+                <span>*</span>
             </label>
             <input type="text" class="w3-input" id="{{ form.participant_name.id_for_label }}"
                 name="{{ form.participant_name.name }}" required>
 
             <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.birth_date }}
 
-
-            <label for="{{ form.gender.id_for_label }}">3 - Sexo do participante: <spam>*</spam></label>
+            <label>3 - Sexo do participante: <span>*</span></label>
             <div class="radio-group">
-                {{ form.gender }}
+                {% for radio in form.gender %}
+                <div class="form-check">
+                    {{ radio.tag }}
+                    {{ radio.choice_label }}
+                </div>
+                {% endfor %}
             </div>
 
-            <!-- Your other form fields... -->
-
-            <!-- Example checkbox group -->
             <div class="form-group">
                 <label>4 - Deficiência do Participante: <span>*</span></label>
                 <div class="checkbox-group">
-                    {% for choice in form.participant_disability %}
+                    {% for disability in form.participant_disability %}
                     <div class="form-check">
-                        {{ choice }}
-                        <label class="form-check-label" for="{{ choice.id_for_label }}">
-                            {{ choice.choice_label }}
-                        </label>
+                        {{ disability }}
+                        
                     </div>
                     {% endfor %}
                 </div>
             </div>
-
-            <!-- Your other form fields... -->
-
-
+            
+            
+            
+            
+            
 
 
             <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.clinical_diagnosis }}
 
             <label for="{{ form.functional_profile.id_for_label }}">6 - Perfil funcional da Deficiência e do
                 participante:
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.functional_profile }}
 
             <label for="{{ form.participation_modalities.id_for_label }}">7 - Participa em qual modalidade?
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.participation_modalities }}
 
@@ -230,13 +245,13 @@
 
             <label for="{{ form.attendance_frequency.id_for_label }}">9 - Quantas vezes o participante frequentou nas
                 aulas neste mês?
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.attendance_frequency }}
 
             <label for="{{ form.attended_dates.id_for_label }}">10 - Quais as datas frequentou neste mês: (Exemplo
                 2,4,6...).
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.attended_dates }}
 
@@ -248,7 +263,7 @@
             {{ form.absent_dates }}
 
             <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda: (Observação:
-                Nome completo da escola, sem abreviaturas). <spam>*</spam></label>
+                Nome completo da escola, sem abreviaturas). <span>*</span></label>
             {{ form.school_name }}
 
             <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
@@ -261,7 +276,7 @@
             {{ form.dropout_reason }}
 
             <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
-                <spam>*</spam>
+                <span>*</span>
             </label>
             {{ form.responding_teacher_name }}
 
@@ -289,6 +304,41 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var reportForm = document.getElementById('reportForm');
+
+            reportForm.addEventListener('submit', function (event) {
+                var requiredFields = reportForm.querySelectorAll('.w3-input[required]');
+
+                requiredFields.forEach(function (field) {
+                    field.classList.remove('red-border');
+
+                    if (field.type === 'radio') {
+                        var radioGroup = document.getElementsByName(field.name);
+
+                        var isChecked = Array.from(radioGroup).some(function (radio) {
+                            return radio.checked;
+                        });
+
+                        if (!isChecked) {
+                            field.classList.add('red-border');
+                        }
+                    } else if (field.value.trim() === '') {
+                        field.classList.add('red-border');
+                    }
+                });
+
+                // Prevent the form from submitting if there are errors
+                if (reportForm.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                reportForm.classList.add('was-validated');
+            });
+        });
+    </script>
 </body>
 
 </html>

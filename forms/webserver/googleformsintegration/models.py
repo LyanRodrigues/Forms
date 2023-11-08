@@ -1,6 +1,5 @@
 from django.db import models
-
-
+from .choices import PARTICIPANT_DISABILITY_CHOICES
 class Disability(models.Model):
     name = models.CharField(max_length=255)
 
@@ -11,13 +10,21 @@ class ParticipantResponse(models.Model):
     participant_name = models.CharField(max_length=255)
     birth_date = models.DateField()
     gender_choices = [
-        ('F', 'Feminino'),
-        ('M', 'Masculino'),
+    ('male', 'Masculino'),
+    ('female', 'Feminino'),
     ]
-    gender = models.CharField(max_length=1, choices=gender_choices)
-   
- 
-    participant_disability = models.ManyToManyField(Disability)   
+
+    PARTICIPANT_DISABILITY_CHOICES = [
+    ('auditiva', 'Deficiência Auditiva'),
+    ('fisica', 'Deficiência Física'),
+    ('intelectual', 'Deficiência Intelectual'),
+    ('visual', 'Deficiência Visual'),
+    ('autista', 'Transtorno Espectro Autista'),
+    # Add more options as needed
+    ]
+
+    gender = models.CharField(max_length=6, choices=gender_choices)
+    participant_disability = models.CharField(max_length=255, choices=PARTICIPANT_DISABILITY_CHOICES, default=[''])
     clinical_diagnosis = models.TextField()
     functional_profile = models.TextField()
     participation_modalities = models.TextField()
