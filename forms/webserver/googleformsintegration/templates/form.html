@@ -181,23 +181,23 @@
             <input type="date" name="{{ form.birth_date.name }}" id="{{ form.birth_date.id }}"
                 value="{{ form.birth_date.value }}" class="w3-input">
 
-            <label>3 - Sexo do participante: <span>*</span></label>
-            <div class="radio-group w3-container">
-                {% for radio in form.gender %}
-                <div class="form-check">
-                    {{ radio.tag }}
-                    <label>{{ radio.choice_label }}</label>
+                <label>3 - Sexo do participante: <span>*</span></label>
+                <div class="radio-group w3-container">
+                    {% for radio in form.gender %}
+                    <label class="form-check">
+                        {{ radio.tag }}
+                        {{ radio.choice_label }}
+                    </label>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-
+                
             <div class="form-group">
                 <label>4 - Deficiência do Participante: <span>*</span></label>
                 <div class="checkbox-group w3-container">
                     {% for disability in form.participant_disability %}
                     <div class="form-check">
                         {{ disability }}
-                        <label>{{ disability.choice_label }}</label>
+                        
                     </div>
                     {% endfor %}
                 </div>
@@ -261,11 +261,8 @@
 
             <!-- Add other form fields as needed -->
 
-            <button type="submit" class="w3-btn">Submit</button>
-
+            <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
             <button type="button" class="clear-btn" onclick="clearForm()">Clear Form</button>
-
-            {% if form.errors %}
             <ul class="errorlist">
                 {% for field, errors in form.errors.items %}
                 <li>{{ field }}:
@@ -280,6 +277,10 @@
             {% endif %}
         </form>
     </div>
+
+
+
+           
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
