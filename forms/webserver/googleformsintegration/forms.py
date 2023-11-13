@@ -4,10 +4,8 @@ from .models import ParticipantResponse, Disability
 
 class ParticipantResponseForm(forms.ModelForm):
 
-    PARTICIPANT_DISABILITY_CHOICES = [
-    (disability.id, disability.name) for disability in Disability.objects.all()
-    ] 
-
+    PARTICIPANT_DISABILITY_CHOICES = [(str(disability.id), disability.name) for disability in Disability.objects.all()]
+    
     ATTENDANCE_CHOICES = [
         (0, 'Não frequentou o mês todo'),
         *[(i, str(i)) for i in range(1, 26)],
@@ -46,11 +44,10 @@ class ParticipantResponseForm(forms.ModelForm):
     ]
     
     GENDER_CHOICES = [
-    ('male', 'Male'),
-    ('female', 'Female'),
+        ('male', 'Male'),
+        ('female', 'Female'),
     ]
 
-    
     participant_name = forms.CharField(
         required=True,
         label='1 - Nome do participante'
@@ -149,11 +146,12 @@ class ParticipantResponseForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'birth_date': forms.DateInput(attrs={'type': 'date', 'class': 'w3-input', 'id': 'id_birth_date'}),
-            'participant_disability': forms.CheckboxSelectMultiple(choices=PARTICIPANT_DISABILITY_CHOICES),
-            # Add more widget customizations for other fields if needed
         }
-
+    def clean_participant_disability(self):
+        participant_disability = self.cleaned_data['participant_disability']
+        if not participant_disability:
+            raise forms.ValidationError("Select at least one disability.")
+        return participant_disability
     def __init__(self, *args, **kwargs):
         super(ParticipantResponseForm, self).__init__(*args, **kwargs)
-        # Remove the following line
-        # self.fields['participant_disability'].queryset = Disability.objects.all()
+        self.fields['participant_disability'].choices = PARTICIPANT_DISABILITY_CHOICES

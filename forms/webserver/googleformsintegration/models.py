@@ -21,10 +21,11 @@ class ParticipantResponse(models.Model):
     ('visual', 'Deficiência Visual'),
     ('autista', 'Transtorno Espectro Autista'),
     # Add more options as needed
-    ]
+]
+
 
     gender = models.CharField(max_length=6, choices=gender_choices)
-    participant_disability = models.CharField(max_length=255, choices=PARTICIPANT_DISABILITY_CHOICES, default=[''])
+    participant_disability = models.CharField(max_length=255, choices=PARTICIPANT_DISABILITY_CHOICES, default='')
     clinical_diagnosis = models.TextField()
     functional_profile = models.TextField()
     participation_modalities = models.TextField()

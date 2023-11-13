@@ -8,168 +8,153 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            /* Light gray background */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .container {
-            background-color: #ffffff;
-            /* White background */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            text-align: left;
-            /* Left-align text */
-        }
-
-        h1 {
-            color: #000000;
-            /* Google's blue color */
-        }
-
-        ul {
-            padding-left: 0px;
-            margin-top: 5px;
-
-        }
-
-        .w3-input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            cursor: text;
-        }
-
-
-        .w3-btn {
-            background-color: #4285f4;
-            /* Google's blue color */
-            color: #ffffff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-        }
-
-        .w3-btn:hover {
-            background-color: #2a62bb;
-            /* Darker blue on hover */
-        }
-
-        /* Customize form field appearance */
-        input[type="text"],
-        select,
-        textarea {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        /* Customize form label appearance */
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #555555;
-            /* Dark gray text color */
-            font-weight: bold;
-        }
-
-
-        /* Customize form button appearance */
-        button[type="submit"] {
-            background-color: #4285f4;
-            /* Google's blue color */
-            color: #ffffff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s ease-in-out;
-            margin-top: 50px
-        }
-
-        button[type="submit"]:hover {
-            background-color: #2a62bb;
-            /* Darker blue on hover */
-        }
-
-        span {
-            margin-top: 200px;
-            color: #d93025;
-        }
-
-        label {
-            padding-top: 10px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .checkbox-group div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-
-        .checkbox-group input {
-            margin-right: 10px;
-            /* Adjust the margin as needed */
-        }
-
-        .checkbox-group label {
-            margin-left: 5px;
-            /* Adjust the margin as needed */
-        }
-
-        /* Customize radio button appearance */
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .radio-group input {
-            margin-bottom: 5px;
-        }
-
-        .radio-group label {
-            margin-left: 5px;
-        }
-
-        .answer_label {
-            color: rgb(197, 197, 197);
-        }
-
-        option {
-            color: #000000;
-        }
-    </style>
-
-
-    <style>
-        .red-border {
-            border: 1px solid #d93025;
-        }
-    </style>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f6e5fc;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
+    
+            .container {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 90%;
+                max-width: 600px;
+                text-align: left;
+                margin-top: 20px;
+            }
+    
+            h1 {
+                color: #980ccf;
+                margin-bottom: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+    
+            ul {
+                padding-left: 0;
+                margin-top: 5px;
+            }
+    
+            span {
+                color: #f31a1a;
+                font-weight: bold;
+            }
+    
+            label {
+                color: #333;
+                font-weight: bold;
+                display: block;
+                margin-bottom: 8px;
+                padding-top: 10px;
+                transition: color 0.3s ease-in-out;
+                font-size: 16px;
+            }
+    
+            input[type="text"],
+            input[type="date"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                transition: border 0.3s ease-in-out;
+                font-size: 16px;
+            }
+    
+            .w3-input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                cursor: text;
+            }
+    
+            .w3-btn {
+                background-color: #3177e7;
+                color: #ffffff;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+                transition: background-color 0.3s ease-in-out;
+                margin-bottom: 10px;
+            }
+    
+            .w3-btn:hover {
+                background-color: #2a62bb;
+            }
+    
+            .clear-btn {
+                background-color: #fff;
+                color: #4285f4;
+                border: 1px solid #4285f4;
+                padding: 10px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            .clear-btn:hover {
+                background-color: #f1f1f1;
+            }
+    
+            .errorlist {
+                color: #d93025;
+                margin-top: 10px;
+                margin-bottom: 0;
+                font-size: 14px;
+            }
+    
+            .radio-group,
+            .checkbox-group {
+                margin-bottom: 20px;
+            }
+    
+            .form-check {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+    
+            input[type="checkbox"],
+            input[type="radio"] {
+                margin-right: 10px;
+                cursor: pointer;
+            }
+    
+            .form-check label {
+                color: #555;
+                transition: color 0.3s ease-in-out;
+                font-size: 16px;
+            }
+    
+            input:focus,
+            select:focus,
+            textarea:focus {
+                border: 1px solid #4285f4;
+                outline: none;
+            }
+    
+            input[type="checkbox"]:checked+label,
+            input[type="radio"]:checked+label {
+                color: #4285f4;
+            }
+        </style>
 </head>
 
 <body>
@@ -193,36 +178,30 @@
             <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
                 <span>*</span>
             </label>
-            {{ form.birth_date }}
+            <input type="date" name="{{ form.birth_date.name }}" id="{{ form.birth_date.id }}"
+                value="{{ form.birth_date.value }}" class="w3-input">
 
             <label>3 - Sexo do participante: <span>*</span></label>
-            <div class="radio-group">
+            <div class="radio-group w3-container">
                 {% for radio in form.gender %}
                 <div class="form-check">
                     {{ radio.tag }}
-                    {{ radio.choice_label }}
+                    <label>{{ radio.choice_label }}</label>
                 </div>
                 {% endfor %}
             </div>
 
             <div class="form-group">
                 <label>4 - Deficiência do Participante: <span>*</span></label>
-                <div class="checkbox-group">
+                <div class="checkbox-group w3-container">
                     {% for disability in form.participant_disability %}
                     <div class="form-check">
                         {{ disability }}
-                        
+                        <label>{{ disability.choice_label }}</label>
                     </div>
                     {% endfor %}
                 </div>
             </div>
-            
-            
-            
-            
-            
-
-
             <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
                 <span>*</span>
             </label>
@@ -282,7 +261,11 @@
 
             <!-- Add other form fields as needed -->
 
-            <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
+            <button type="submit" class="w3-btn">Submit</button>
+
+            <button type="button" class="clear-btn" onclick="clearForm()">Clear Form</button>
+
+            {% if form.errors %}
             <ul class="errorlist">
                 {% for field, errors in form.errors.items %}
                 <li>{{ field }}:
@@ -298,47 +281,100 @@
         </form>
     </div>
 
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+    <!-- ... (previous code) ... -->
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var reportForm = document.getElementById('reportForm');
+        document.addEventListener("DOMContentLoaded", function () {
+    const requiredFields = document.querySelectorAll('[required]');
 
-            reportForm.addEventListener('submit', function (event) {
-                var requiredFields = reportForm.querySelectorAll('.w3-input[required]');
+    requiredFields.forEach((field) => {
+        field.addEventListener('blur', () => {
+            const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
+                ? !field.checked
+                : field.value.trim() === '';
 
-                requiredFields.forEach(function (field) {
-                    field.classList.remove('red-border');
+            field.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
 
-                    if (field.type === 'radio') {
-                        var radioGroup = document.getElementsByName(field.name);
+            // Display error message for required fields
+            if (isEmpty) {
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'errorlist';
+                errorMessage.innerText = 'Field required';
 
-                        var isChecked = Array.from(radioGroup).some(function (radio) {
-                            return radio.checked;
-                        });
-
-                        if (!isChecked) {
-                            field.classList.add('red-border');
-                        }
-                    } else if (field.value.trim() === '') {
-                        field.classList.add('red-border');
-                    }
-                });
-
-                // Prevent the form from submitting if there are errors
-                if (reportForm.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
+                // Check if an error message already exists
+                const existingError = field.parentElement.querySelector('.errorlist');
+                if (!existingError) {
+                    field.parentElement.appendChild(errorMessage);
                 }
-
-                reportForm.classList.add('was-validated');
-            });
+            } else {
+                // Remove error message when field is not empty
+                const existingError = field.parentElement.querySelector('.errorlist');
+                if (existingError) {
+                    existingError.remove();
+                }
+            }
         });
+
+        field.addEventListener('focus', () => {
+            field.style.border = '1px solid #4285f4';
+        });
+
+        // Add transition effect for a smoother visual experience
+        field.style.transition = 'border 0.3s ease-in-out';
+    });
+});
+
+        function clearForm() {
+        const form = document.getElementById('reportForm');
+        const inputs = form.querySelectorAll('input, select, textarea');
+
+        // Display confirmation dialog
+        const isConfirmed = confirm("Are you sure you want to clear the form?");
+        
+        if (isConfirmed) {
+            inputs.forEach((input) => {
+                if (input.type !== 'submit' && input.type !== 'button') {
+                    input.value = '';
+                    input.checked = false;
+                    input.style.border = '1px solid #ddd';
+                }
+            });
+        }
+    }
+
+    // Function to reset the form fields on page load
+    function resetFormOnLoad() {
+        const form = document.getElementById('reportForm');
+        const inputs = form.querySelectorAll('input, select, textarea');
+
+        inputs.forEach((input) => {
+            if (input.type !== 'submit' && input.type !== 'button') {
+                input.value = '';
+                input.checked = false;
+                input.style.border = '1px solid #ddd';
+            }
+        });
+    }
+
+    // Call the reset function on page load
+    document.addEventListener("DOMContentLoaded", resetFormOnLoad);
+
+    // Prevent default confirmation dialog for refreshing the page
+    window.addEventListener('beforeunload', function (e) {
+        e.preventDefault();
+        e.returnValue = '';
+    });
     </script>
+
+<!-- ... (remaining code) ... -->
+
 </body>
 
 </html>
