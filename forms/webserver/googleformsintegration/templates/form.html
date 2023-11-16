@@ -8,179 +8,217 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f6e5fc;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                min-height: 100vh;
-            }
-    
-            .container {
-                background-color: #ffffff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 90%;
-                max-width: 600px;
-                text-align: left;
-                margin-top: 20px;
-            }
-    
-            h1 {
-                color: #980ccf;
-                margin-bottom: 20px;
-                font-size: 24px;
-                font-weight: bold;
-            }
-    
-            ul {
-                padding-left: 0;
-                margin-top: 5px;
-            }
-    
-            span {
-                color: #f31a1a;
-                font-weight: bold;
-            }
-    
-            label {
-                color: #333;
-                font-weight: bold;
-                display: block;
-                margin-bottom: 8px;
-                padding-top: 10px;
-                transition: color 0.3s ease-in-out;
-                font-size: 16px;
-            }
-    
-            input[type="text"],
-            input[type="date"],
-            select,
-            textarea {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                box-sizing: border-box;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                transition: border 0.3s ease-in-out;
-                font-size: 16px;
-            }
-    
-            .w3-input {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                box-sizing: border-box;
-                cursor: text;
-            }
-    
-            .w3-btn {
-                background-color: #3177e7;
-                color: #ffffff;
-                padding: 10px 15px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                width: 100%;
-                transition: background-color 0.3s ease-in-out;
-                margin-bottom: 10px;
-            }
-    
-            .w3-btn:hover {
-                background-color: #2a62bb;
-            }
-    
-            .clear-btn {
-                background-color: #fff;
-                color: #4285f4;
-                border: 1px solid #4285f4;
-                padding: 10px 15px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-                width: 100%;
-                transition: background-color 0.3s ease-in-out;
-            }
-    
-            .clear-btn:hover {
-                background-color: #f1f1f1;
-            }
-    
-            .errorlist {
-                color: #d93025;
-                margin-top: 10px;
-                margin-bottom: 0;
-                font-size: 14px;
-            }
-    
-            .radio-group,
-            .checkbox-group {
-                margin-bottom: 20px;
-            }
-    
-            .form-check {
-                display: flex;
-                align-items: center;
-                margin-bottom: 10px;
-            }
-    
-            input[type="checkbox"],
-            input[type="radio"] {
-                margin-right: 10px;
-                cursor: pointer;
-            }
-    
-            .form-check label {
-                color: #555;
-                transition: color 0.3s ease-in-out;
-                font-size: 16px;
-            }
-    
-            input:focus,
-            select:focus,
-            textarea:focus {
-                border: 1px solid #4285f4;
-                outline: none;
-            }
-    
-            input[type="checkbox"]:checked+label,
-            input[type="radio"]:checked+label {
-                color: #4285f4;
-            }
-        </style>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6e5fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #f6e5fc;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c043b;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-top: 5px;
+        }
+
+        span {
+            color: #f31a1a;
+            font-weight: bold;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            padding-top: 10px;
+            transition: color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        .w3-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            cursor: text;
+        }
+
+        .w3-btn {
+            background-color: rgb(103, 58, 183);
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .w3-btn:hover {
+            background-color: rgb(184, 143, 255);
+        }
+
+        .clear-btn {
+            background-color: #fff;
+            color: rgb(103, 58, 183);
+            border: 1px solid rgb(103, 58, 183);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .clear-btn:hover {
+            background-color: rgb(158, 103, 255);
+        }
+
+        .errorlist {
+            color: #d93025;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .form-check label {
+            color: #555;
+            transition: color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border: 1px solid #4285f4;
+            outline: none;
+        }
+
+        input[type="checkbox"]:checked+label,
+        input[type="radio"]:checked+label {
+            color: #4285f4;
+        }
+
+        section {
+            background-color: rgb(255, 255, 255);
+            border-color: rgb(218, 220, 224);
+            border-radius: 8px;
+            border-width: 1px;
+            color: rgb(32, 33, 36);
+            margin-top: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 16px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 22px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .linha {
+            background-color: rgb(103, 58, 183);
+            height: 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transform: translateY(-50%);
+        }
+        .error-border {
+    border-color: red !important;
+}
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Relatório Paradesporto Escolar - Fevereiro 2023</h1>
-        <ul>Relatório de frequência das aulas presenciais. <br></ul>
-        <ul>
-            <span>* Indica pergunta obrigatória</span>
-        </ul>
+        <section>
+            <ul class="linha"></ul>
+            <h1>Relatório Paradesporto Escolar - Fevereiro 2023</h1>
+            <ul>Relatório de frequência das aulas presenciais. <br></ul>
+            <ul>
+                <span>* Indica pergunta obrigatória</span>
+            </ul>
+        </section>
+
 
         <form method="post" class="needs-validation" novalidate id="reportForm">
             {% csrf_token %}
 
-            <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem
-                abreviaturas).
-                <span>*</span>
-            </label>
-            <input type="text" class="w3-input" id="{{ form.participant_name.id_for_label }}"
-                name="{{ form.participant_name.name }}" required>
+            <section id="linha1">
+                <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem abreviaturas).
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input" id="nome"
+                    name="{{ form.participant_name.name }}" required onblur="troca('nome', 'linha1')">
+            </section>
 
-            <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
-                <span>*</span>
-            </label>
-            <input type="date" name="{{ form.birth_date.name }}" id="{{ form.birth_date.id }}"
-                value="{{ form.birth_date.value }}" class="w3-input">
+            <section>
+                <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
+                    <span>*</span>
+                </label>
+                <input type="date" name="{{ form.birth_date.name }}" id="{{ form.birth_date.id }}"
+                    value="{{ form.birth_date.value }}" class="w3-input">
+            </section>
 
+            <section>
                 <label>3 - Sexo do participante: <span>*</span></label>
                 <div class="radio-group w3-container">
                     {% for radio in form.gender %}
@@ -190,76 +228,104 @@
                     </label>
                     {% endfor %}
                 </div>
-                
-            <div class="form-group">
+            </section>
+
+            <section>
                 <label>4 - Deficiência do Participante: <span>*</span></label>
                 <div class="checkbox-group w3-container">
                     {% for disability in form.participant_disability %}
                     <div class="form-check">
                         {{ disability }}
-                        
                     </div>
                     {% endfor %}
                 </div>
-            </div>
-            <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
-                <span>*</span>
-            </label>
-            {{ form.clinical_diagnosis }}
+            </section>
 
-            <label for="{{ form.functional_profile.id_for_label }}">6 - Perfil funcional da Deficiência e do
-                participante:
-                <span>*</span>
-            </label>
-            {{ form.functional_profile }}
+            <section>
+                <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
+                    <span>*</span>
+                </label>
+                {{ form.clinical_diagnosis }}
+            </section>
 
-            <label for="{{ form.participation_modalities.id_for_label }}">7 - Participa em qual modalidade?
-                <span>*</span>
-            </label>
-            {{ form.participation_modalities }}
+            <section>
+                <label for="{{ form.functional_profile.id_for_label }}">6 - Perfil funcional da Deficiência e do
+                    participante:
+                    <span>*</span>
+                </label>
+                {{ form.functional_profile }}
+            </section>
 
-            <label for="{{ form.participation_observations.id_for_label }}">8 - Observações da participação do
-                participante neste mês.</label>
-            {{ form.participation_observations }}
+            <section>
+                <label for="{{ form.participation_modalities.id_for_label }}">7 - Participa em qual modalidade?
+                    <span>*</span>
+                </label>
+                {{ form.participation_modalities }}
+            </section>
 
-            <label for="{{ form.attendance_frequency.id_for_label }}">9 - Quantas vezes o participante frequentou nas
-                aulas neste mês?
-                <span>*</span>
-            </label>
-            {{ form.attendance_frequency }}
+            <section>
+                <label for="{{ form.participation_observations.id_for_label }}">8 - Observações da participação do
+                    participante neste mês.</label>
+                {{ form.participation_observations }}
+            </section>
 
-            <label for="{{ form.attended_dates.id_for_label }}">10 - Quais as datas frequentou neste mês: (Exemplo
-                2,4,6...).
-                <span>*</span>
-            </label>
-            {{ form.attended_dates }}
+            <section>
+                <label for="{{ form.attendance_frequency.id_for_label }}">9 - Quantas vezes o participante frequentou
+                    nas
+                    aulas neste mês?
+                    <span>*</span>
+                </label>
+                {{ form.attendance_frequency }}
+            </section>
 
-            <label for="{{ form.absences_count.id_for_label }}">11 - Número de faltas neste mês?</label>
-            {{ form.absences_count }}
+            <section>
+                <label for="{{ form.attended_dates.id_for_label }}">10 - Quais as datas frequentou neste mês: (Exemplo
+                    2,4,6...).
+                    <span>*</span>
+                </label>
+                {{ form.attended_dates }}
+            </section>
 
-            <label for="{{ form.absent_dates.id_for_label }}">12 - Quais as datas que não frequentou este mês: (Exemplo
-                10,12,14...).</label>
-            {{ form.absent_dates }}
+            <section>
+                <label for="{{ form.absences_count.id_for_label }}">11 - Número de faltas neste mês?</label>
+                {{ form.absences_count }}
+            </section>
 
-            <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda: (Observação:
-                Nome completo da escola, sem abreviaturas). <span>*</span></label>
-            {{ form.school_name }}
+            <section>
+                <label for="{{ form.absent_dates.id_for_label }}">12 - Quais as datas que não frequentou este mês:
+                    (Exemplo
+                    10,12,14...).</label>
+                {{ form.absent_dates }}
+            </section>
 
-            <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
-            {{ form.additional_observations }}
+            <section>
+                <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda:
+                    (Observação:
+                    Nome completo da escola, sem abreviaturas). <span>*</span></label>
+                {{ form.school_name }}
+            </section>
 
-            <label for="{{ form.dropout_list.id_for_label }}">15 - Listar participante desistente:</label>
-            {{ form.dropout_list }}
+            <section>
+                <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
+                {{ form.additional_observations }}
+            </section>
 
-            <label for="{{ form.dropout_reason.id_for_label }}">16 - Motivo da desistência:</label>
-            {{ form.dropout_reason }}
+            <section>
+                <label for="{{ form.dropout_list.id_for_label }}">15 - Listar participante desistente:</label>
+                {{ form.dropout_list }}
+            </section>
 
-            <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
-                <span>*</span>
-            </label>
-            {{ form.responding_teacher_name }}
+            <section>
+                <label for="{{ form.dropout_reason.id_for_label }}">16 - Motivo da desistência:</label>
+                {{ form.dropout_reason }}
+            </section>
 
-            <!-- Add other form fields as needed -->
+            <section>
+                <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
+                    <span>*</span>
+                </label>
+                {{ form.responding_teacher_name }}
+            </section>
 
             <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
             <button type="button" class="clear-btn" onclick="clearForm()">Clear Form</button>
@@ -280,7 +346,7 @@
 
 
 
-           
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -293,53 +359,119 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const requiredFields = document.querySelectorAll('[required]');
+            const form = document.getElementById('reportForm');
+            const requiredFields = form.querySelectorAll('[required]');
 
-    requiredFields.forEach((field) => {
-        field.addEventListener('blur', () => {
-            const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
-                ? !field.checked
-                : field.value.trim() === '';
+            form.addEventListener('submit', function (event) {
+                let isFormValid = true;
 
-            field.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
+                // Check if any required field is empty
+                requiredFields.forEach((field) => {
+                    let isEmpty = false;
 
-            // Display error message for required fields
-            if (isEmpty) {
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'errorlist';
-                errorMessage.innerText = 'Field required';
+                    if (field.type === 'checkbox' || field.type === 'radio') {
+                        // For checkboxes and radio buttons, check if any in the group is checked
+                        const group = document.getElementsByName(field.name);
+                        isEmpty = !Array.from(group).some((radio) => radio.checked);
+                    } else {
+                        isEmpty = field.value.trim() === '';
+                    }
 
-                // Check if an error message already exists
-                const existingError = field.parentElement.querySelector('.errorlist');
-                if (!existingError) {
-                    field.parentElement.appendChild(errorMessage);
+                    if (isEmpty) {
+                        isFormValid = false;
+                        field.style.border = '1px solid #d93025';
+
+                        // Display error message for required fields
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'errorlist';
+                        errorMessage.innerText = 'Fill all required fields';
+
+                        // Check if an error message already exists
+                        const existingError = field.parentElement.querySelector('.errorlist');
+                        if (!existingError) {
+                            field.parentElement.appendChild(errorMessage);
+                        }
+                    }
+                });
+
+                // Prevent form submission if any required field is empty
+                if (!isFormValid) {
+                    event.preventDefault();
                 }
-            } else {
-                // Remove error message when field is not empty
-                const existingError = field.parentElement.querySelector('.errorlist');
-                if (existingError) {
-                    existingError.remove();
-                }
-            }
-        });
+            });
 
-        field.addEventListener('focus', () => {
-            field.style.border = '1px solid #4285f4';
-        });
+            requiredFields.forEach((field) => {
+                field.addEventListener('blur', () => {
+                    const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
+                        ? !field.checked
+                        : field.value.trim() === '';
 
-        // Add transition effect for a smoother visual experience
-        field.style.transition = 'border 0.3s ease-in-out';
-    });
-});
+                    field.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
+
+                    // Display error message for required fields (except radios)
+                    if (isEmpty && field.type !== 'radio') {
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'errorlist';
+                        errorMessage.innerText = 'Field required';
+
+                        // Check if an error message already exists
+                        const existingError = field.parentElement.querySelector('.errorlist');
+                        if (!existingError) {
+                            field.parentElement.appendChild(errorMessage);
+                        }
+                    } else {
+                        // Remove error message when field is not empty
+                        const existingError = field.parentElement.querySelector('.errorlist');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+                    }
+                });
+
+                field.addEventListener('focus', () => {
+                    field.style.border = '1px solid #4285f4';
+                });
+
+                // Add transition effect for a smoother visual experience
+                field.style.transition = 'border 0.3s ease-in-out';
+            });
+        });
 
         function clearForm() {
-        const form = document.getElementById('reportForm');
-        const inputs = form.querySelectorAll('input, select, textarea');
+            const form = document.getElementById('reportForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let isFormEmpty = true;
 
-        // Display confirmation dialog
-        const isConfirmed = confirm("Are you sure you want to clear the form?");
-        
-        if (isConfirmed) {
+            // Check if any input has a value
+            inputs.forEach((input) => {
+                if (input.type !== 'submit' && input.type !== 'button' && (input.value || input.checked)) {
+                    isFormEmpty = false;
+                }
+            });
+
+            // Display confirmation dialog if the form is not already empty
+            if (!isFormEmpty) {
+                const isConfirmed = confirm("Are you sure you want to clear the form?");
+
+                if (isConfirmed) {
+                    inputs.forEach((input) => {
+                        if (input.type !== 'submit' && input.type !== 'button') {
+                            input.value = '';
+                            input.checked = false;
+                            input.style.border = '1px solid #ddd';
+                        }
+                    });
+                }
+            } else {
+                alert("The form is already cleared.");
+            }
+        }
+
+        // Function to reset the form fields on page load
+        function resetFormOnLoad() {
+            const form = document.getElementById('reportForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+
             inputs.forEach((input) => {
                 if (input.type !== 'submit' && input.type !== 'button') {
                     input.value = '';
@@ -348,33 +480,37 @@
                 }
             });
         }
-    }
 
-    // Function to reset the form fields on page load
-    function resetFormOnLoad() {
-        const form = document.getElementById('reportForm');
-        const inputs = form.querySelectorAll('input, select, textarea');
+        // Call the reset function on page load
+        document.addEventListener("DOMContentLoaded", resetFormOnLoad);
 
-        inputs.forEach((input) => {
-            if (input.type !== 'submit' && input.type !== 'button') {
-                input.value = '';
-                input.checked = false;
-                input.style.border = '1px solid #ddd';
-            }
+        // Prevent default confirmation dialog for refreshing the page
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
         });
+
+        function troca(targetId, borderColorChangeId) {
+    var targetElement = document.getElementById(targetId);
+    var borderColorChangeElement = document.getElementById(borderColorChangeId);
+
+    if (targetElement && borderColorChangeElement) {
+        if (targetElement.value.trim() === '') {
+            // If the input is empty, set both the input and section border color to red
+            targetElement.style.border = '1px solid red';
+            borderColorChangeElement.style.borderColor = 'red';
+        } else {
+            // If the input is not empty, reset both the input and section border color
+            targetElement.style.border = '1px solid #ddd'; // Default color
+            borderColorChangeElement.style.borderColor = ''; // Empty string resets it to default
+        }
     }
+}
 
-    // Call the reset function on page load
-    document.addEventListener("DOMContentLoaded", resetFormOnLoad);
 
-    // Prevent default confirmation dialog for refreshing the page
-    window.addEventListener('beforeunload', function (e) {
-        e.preventDefault();
-        e.returnValue = '';
-    });
     </script>
 
-<!-- ... (remaining code) ... -->
+    <!-- ... (remaining code) ... -->
 
 </body>
 

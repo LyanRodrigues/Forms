@@ -7,6 +7,7 @@ class ParticipantResponseForm(forms.ModelForm):
     PARTICIPANT_DISABILITY_CHOICES = [(str(disability.id), disability.name) for disability in Disability.objects.all()]
     
     ATTENDANCE_CHOICES = [
+        ('', 'Escolha'),
         (0, 'Não frequentou o mês todo'),
         *[(i, str(i)) for i in range(1, 26)],
     ]
@@ -100,7 +101,7 @@ class ParticipantResponseForm(forms.ModelForm):
     )
 
     attended_dates = forms.CharField(
-        required=False,
+        required=True,
         label='10 - Quais as datas frequentou neste mês: (Exemplo 2,4,6...).'
     )
 
