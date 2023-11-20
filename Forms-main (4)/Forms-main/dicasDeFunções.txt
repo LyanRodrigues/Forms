@@ -1,0 +1,100 @@
+<div class="Qr7Oae" role="listitem" id="1">
+                  <div jsmodel="CP1oW"
+                  data-params="%.@.[712761256,&quot;1 - Nome do participante: (Completo, sem abreviaturas).&quot;,null,0,[[867318538,[],true,[],[],null,null,null,null,null,[null,[]]]],null,null,null,[],null,null,[null,&quot;1 - Nome do participante: (Completo, sem abreviaturas).&quot;]],&quot;i1&quot;,&quot;i2&quot;,&quot;i3&quot;,false]">
+                  <div jscontroller="sWGJ4b" jsaction="EEvAHc:yfX9oc;" jsname="WsjYwc" class="geS5n" id="div1">
+                    <div class="z12JJ">
+                      <div class="M4DNQ">
+                        <div id="i1" class="HoXoMd D1wxyf RjsPE" role="heading" aria-level="3" aria-describedby="i4">
+                          <span class="M7eMe">1 - Nome do participante: (Completo, sem abreviaturas).</span>
+                          <span class="vnumgf" id="i4" aria-label="Pergunta obrigatória">*</span>
+                        </div>
+                        <div class="gubaDc OIC90c RjsPE" id="i2"></div>
+                      </div>
+                    </div>
+                    <div jscontroller="oCiKKc"
+                      jsaction="rcuQ6b:vZc4S;O22p3e:zjh6rb;b2trFe:eVidQc;sPvj8e:d3sQLd;AHmuwe:h06R8;" class="AgroKb">
+                      <div class="rFrNMe k3kHxc RdH0ib yqQS1 zKHdkd RDPZE" jscontroller="pxq3x"
+                        jsaction="clickonly:KjsqPd; focus:Jt1EX; blur:fpfTEe; input:Lg5SV" jsshadow="" jsname="YPqjbf"
+                        aria-disabled="true">
+                        <div class="aCsJod oJeWuf">
+                          <div class="aXBtI Wic03c">
+                            <div class="Xb9hP">
+                              <input type="text" class="whsOnd zHQkBf" jsname="YPqjbf" autocomplete="off" tabindex="0"
+                                aria-labelledby="i1" aria-describedby="i2 i3" dir="auto"
+                                data-initial-dir="auto" data-initial-value="" oninput="clearText('input1','text1')" id="input1"
+                                onblur="troca('input1', 'div1')" required>
+                              <div jsname="LwH6nd" class="ndJi5d snByac" aria-hidden="true" id="text1">Sua
+                                resposta</div>
+                            </div>
+                            <div class="i9lrp mIZh1c" id="troca"></div>
+                            <div jsname="XmnwAc" class="OabDMe cXrdqd"></div>
+                          </div>
+                        </div>
+                        <div class="LXRPh">
+                          <div jsname="ty6ygf" class="ovnfwe Is7Fhb"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div jsname="Rfh2Tc" class="SL4Sz" id="i3" role="alert"></div>
+                  </div>
+                </div>
+                </div>
+
+
+-----------------------------------------------------------------
+
+COMO FAZER A BORDA VERMELHA
+
+atribuição do id ao input a ser verificado: 
+id = "input"
+
+atribuição do id a tag que terá sua borda trocada:
+id="borda"
+
+chamada da função de troca de borda caso o input esteja vazio:
+onblur ="troca('input', 'borda')"
+
+função de troca:
+function troca(targetId, borderColorChangeId) {
+    var targetElement = document.getElementById(targetId);
+    var borderColorChangeElement = document.getElementById(borderColorChangeId);
+    if (targetElement && borderColorChangeElement) {
+      if (targetElement.value.trim() === '') {
+        borderColorChangeElement.style.borderColor = 'red';
+      } else {
+        // Reset borderColor to its default when the target element is not blank
+        borderColorChangeElement.style.borderColor = ''; // Empty string resets it to default
+      }
+    }
+  }
+--------------------------------------------------------------------
+
+COMO FAZER O TEXTO DEFAULT QUE DESAPARECE
+
+atribuição do id a tag contendo o texto que irá desaparecer:
+id ="text"
+
+atribuição do id ao input que quando escrito algo, chamará a função:
+id ="input"
+
+chamada da função que faz o texto desaparecer:
+oninput="clearText('input','text')"
+
+função que fará o texto desaparecer quando escrito algo no input:
+ function clearText(inputId, textId) {
+  // Obtém o valor digitado no campo de entrada
+  var inputValue = document.getElementById(inputId).value;
+
+  // Obtém o elemento do texto de trás
+  var textoDeTras = document.getElementById(textId);
+
+  // Verifica se há algo digitado no campo de entrada
+  if (inputValue.length > 0) {
+    // Se houver algo digitado, esconde o texto de trás
+    textoDeTras.style.display = 'none';
+  } else {
+    // Se o campo estiver vazio, mostra o texto de trás
+    textoDeTras.style.display = 'block';
+  }
+}
+

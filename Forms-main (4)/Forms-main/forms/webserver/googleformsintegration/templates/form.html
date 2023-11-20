@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Paradesporto Escolar - Fevereiro 2023</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6e5fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #f6e5fc;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c043b;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 0;
+            margin-top: 5px;
+        }
+
+        span {
+            color: #f31a1a;
+            font-weight: bold;
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            padding-top: 10px;
+            transition: color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        .w3-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            cursor: text;
+        }
+
+        .w3-btn {
+            background-color: rgb(103, 58, 183);
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .w3-btn:hover {
+            background-color: rgb(184, 143, 255);
+        }
+
+        .clear-btn {
+            background-color: #fff;
+            color: rgb(103, 58, 183);
+            border: 1px solid rgb(103, 58, 183);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .clear-btn:hover {
+            background-color: rgb(158, 103, 255);
+        }
+
+        .errorlist {
+            color: #d93025;
+            margin-top: 10px;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .form-check label {
+            color: #555;
+            transition: color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border: 1px solid #4285f4;
+            outline: none;
+        }
+
+        input[type="checkbox"]:checked+label,
+        input[type="radio"]:checked+label {
+            color: #4285f4;
+        }
+
+        section {
+            background-color: rgb(255, 255, 255);
+            border-color: rgb(218, 220, 224);
+            border-radius: 8px;
+            border-width: 1px;
+            color: rgb(32, 33, 36);
+            margin-top: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 16px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 22px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .linha {
+            background-color: rgb(103, 58, 183);
+            height: 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transform: translateY(-50%);
+        }
+        .error-border {
+    border-color: red !important;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <ul class="linha"></ul>
+            <h1>Relatório Paradesporto Escolar - Fevereiro 2023</h1>
+            <ul>Relatório de frequência das aulas presenciais. <br></ul>
+            <ul>
+                <span>* Indica pergunta obrigatória</span>
+            </ul>
+        </section>
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+        <form method="post" class="needs-validation" novalidate id="reportForm">
+            {% csrf_token %}
+
+            <section>
+                <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem abreviaturas).
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input"
+                    name="{{ form.participant_name.name }}" required placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.birth_date.id_for_label }}">2 - Data de nascimento:
+                    <span>*</span>
+                </label>
+                <input type="date" name="{{ form.birth_date.name }}" id="{{ form.birth_date.id }}"
+                    value="{{ form.birth_date.value }}" class="w3-input" required>
+            </section>
+
+            <section>
+                <label>3 - Sexo do participante: <span>*</span></label>
+                <div class="radio-group w3-container">
+                    {% for radio in form.gender %}
+                    <label class="form-check">
+                        {{ radio.tag }}
+                        {{ radio.choice_label }}
+                    </label>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section>
+                <label>4 - Deficiência do Participante: <span>*</span></label>
+                <div class="checkbox-group w3-container">
+                    {% for disability in form.participant_disability %}
+                    <div class="form-check">
+                        {{ disability }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section>
+                <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input"
+                    name="{{ form.clinical_diagnosis.name }}" required placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.functional_profile.id_for_label }}">6 - Perfil funcional da Deficiência e do
+                    participante:
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input"
+                    name="{{ form.functional_profile.name }}" required placeholder="Insira sua resposta">
+
+                
+            </section>
+
+            <section>
+                <label for="{{ form.participation_modalities.id_for_label }}">7 - Participa em qual modalidade?
+                    <span>*</span>
+                </label>
+                {{ form.participation_modalities }}
+            </section>
+
+            <section>
+                <label for="{{ form.participation_observations.id_for_label }}">8 - Observações da participação do
+                    participante neste mês.</label>
+                    <input type="text" class="w3-input"
+                    name="{{ form.participation_observations.name }}" placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.attendance_frequency.id_for_label }}">9 - Quantas vezes o participante frequentou
+                    nas
+                    aulas neste mês?
+                    <span>*</span>
+                </label>
+                {{ form.attendance_frequency }}
+            </section>
+
+            <section>
+                <label for="{{ form.attended_dates.id_for_label }}">10 - Quais as datas frequentou neste mês: (Exemplo
+                    2,4,6...).
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input"
+                name="{{ form.attended_dates.name }}" required placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.absences_count.id_for_label }}">11 - Número de faltas neste mês?</label>
+                {{ form.absences_count }}
+            </section>
+
+            <section>
+                <label for="{{ form.absent_dates.id_for_label }}">12 - Quais as datas que não frequentou este mês:
+                    (Exemplo
+                    10,12,14...).</label>
+                    <input type="text" class="w3-input"
+                    name="{{ form.absent_dates.name }}" placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda:
+                    (Observação:
+                    Nome completo da escola, sem abreviaturas). <span>*</span></label>
+                    <input type="text" class="w3-input"
+                    name="{{ form.achool_name.name }}" required placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
+                <input type="text" class="w3-input"
+                name="{{ form.additional_observations.name }}" placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.dropout_list.id_for_label }}">15 - Listar participante desistente:</label>
+                <input type="text" class="w3-input"
+                name="{{ form.dropout_list.name }}" placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.dropout_reason.id_for_label }}">16 - Motivo da desistência:</label>
+                <input type="text" class="w3-input"
+                name="{{ form.dropout_reason.name }}" placeholder="Insira sua resposta">
+            </section>
+
+            <section>
+                <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
+                    <span>*</span>
+                </label>
+                <input type="text" class="w3-input"
+                name="{{ form.responding_teacher_name.name }}" required placeholder="Insira sua resposta">
+            </section>
+
+            <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
+            <button type="button" class="clear-btn" onclick="clearForm()">Clear Form</button>
+            <ul class="errorlist">
+                {% for field, errors in form.errors.items %}
+                <li>{{ field }}:
+                    <ul class="errorlist">
+                        {% for error in errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- ... (previous code) ... -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('reportForm');
+    const requiredFields = form.querySelectorAll('[required]');
+
+    form.addEventListener('submit', function (event) {
+        let isFormValid = true;
+
+        // Check if any required field is empty
+        requiredFields.forEach((field) => {
+            let isEmpty = false;
+
+            if (field.type === 'checkbox' || field.type === 'radio') {
+                // For checkboxes and radio buttons, check if any in the group is checked
+                const group = document.getElementsByName(field.name);
+                isEmpty = !Array.from(group).some((radio) => radio.checked);
+            } else {
+                isEmpty = field.value.trim() === '';
+            }
+
+            const section = field.closest('section'); // Find the closest section element
+
+            if (isEmpty) {
+                isFormValid = false;
+                section.style.border = '1px solid #d93025'; // Change border color of the section
+
+                // Display error message for required fields
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'errorlist';
+                errorMessage.innerText = 'Questão obrigatória';
+
+                // Check if an error message already exists
+                const existingError = section.querySelector('.errorlist');
+                if (!existingError) {
+                    section.appendChild(errorMessage);
+                }
+            }
+        });
+
+        // Prevent form submission if any required field is empty
+        if (!isFormValid) {
+            event.preventDefault();
+        }
+    });
+
+    requiredFields.forEach((field) => {
+        field.addEventListener('blur', () => {
+            const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
+                ? !field.checked
+                : field.value.trim() === '';
+
+            const section = field.closest('section'); // Find the closest section element
+
+            section.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
+
+            // Display error message for required fields (except radios)
+            if (isEmpty && field.type !== 'radio') {
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'errorlist';
+                errorMessage.innerText = 'Field required';
+
+                // Check if an error message already exists
+                const existingError = section.querySelector('.errorlist');
+                if (!existingError) {
+                    section.appendChild(errorMessage);
+                }
+            } else {
+                // Remove error message when field is not empty
+                const existingError = section.querySelector('.errorlist');
+                if (existingError) {
+                    existingError.remove();
+                }
+            }
+        });
+
+        field.addEventListener('focus', () => {
+            const section = field.closest('section'); // Find the closest section element
+            section.style.border = '1px solid #4285f4';
+
+        });
+
+        // Add transition effect for a smoother visual experience
+        field.style.transition = 'border 0.3s ease-in-out';
+    });
+});
+
+
+        function clearForm() {
+            const form = document.getElementById('reportForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let isFormEmpty = true;
+
+            // Check if any input has a value
+            inputs.forEach((input) => {
+                if (input.type !== 'submit' && input.type !== 'button' && (input.value || input.checked)) {
+                    isFormEmpty = false;
+                }
+            });
+
+            // Display confirmation dialog if the form is not already empty
+            if (!isFormEmpty) {
+                const isConfirmed = confirm("Are you sure you want to clear the form?");
+
+                if (isConfirmed) {
+                    inputs.forEach((input) => {
+                        if (input.type !== 'submit' && input.type !== 'button') {
+                            input.value = '';
+                            input.checked = false;
+                            input.style.border = '1px solid #ddd';
+                        }
+                    });
+                }
+            } else {
+                alert("The form is already cleared.");
+            }
+        }
+
+        // Function to reset the form fields on page load
+        function resetFormOnLoad() {
+            const form = document.getElementById('reportForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+
+            inputs.forEach((input) => {
+                if (input.type !== 'submit' && input.type !== 'button') {
+                    input.value = '';
+                    input.checked = false;
+                    input.style.border = '1px solid #ddd';
+                }
+            });
+        }
+
+        // Call the reset function on page load
+        document.addEventListener("DOMContentLoaded", resetFormOnLoad);
+
+        // Prevent default confirmation dialog for refreshing the page
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+
+        function troca(targetId, borderColorChangeId) {
+    var targetElement = document.getElementById(targetId);
+    var borderColorChangeElement = document.getElementById(borderColorChangeId);
+
+    if (targetElement && borderColorChangeElement) {
+        if (targetElement.value.trim() === '') {
+            // If the input is empty, set both the input and section border color to red
+            targetElement.style.border = '1px solid red';
+            borderColorChangeElement.style.borderColor = 'red';
+        } else {
+            // If the input is not empty, reset both the input and section border color
+            targetElement.style.border = '1px solid #ddd'; // Default color
+            borderColorChangeElement.style.borderColor = ''; // Empty string resets it to default
+        }
+    }
+}
+
+
+    </script>
+
+    <!-- ... (remaining code) ... -->
+
+</body>
+
+</html>

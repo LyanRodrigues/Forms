@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Participant Form</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #4285f4;
+        }
+        .form-field {
+            margin-bottom: 20px;
+        }
+        .w3-input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .datepicker-icon {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;
+        }
+        .w3-btn {
+            background-color: #4285f4;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .w3-btn:hover {
+            background-color: #2a62bb;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+            transition: border-color 0.3s ease-in-out;
+        }
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #4285f4;
+            outline: none;
+        }
+        button[type="submit"] {
+            background-color: #4285f4;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button[type="submit"]:hover {
+            background-color: #2a62bb;
+        }
+        .error-message {
+            color: #d93025;
+            margin-top: -8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Professional Participant Form</h1>
+        <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+
+            <div class="form-field">
+                <label for="{{ form.participant_name.id_for_label }}">Name</label>
+                <input type="text" class="w3-input" id="{{ form.participant_name.id_for_label }}" name="{{ form.participant_name.name }}" required>
+                {% if form.participant_name.errors %}
+                    <p class="error-message">{{ form.participant_name.errors }}</p>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.birth_date.id_for_label }}">Birth Date</label>
+                <div class="w3-input-group">
+                    {{ form.birth_date }}
+                    <div class="datepicker-icon">
+                        <span class="w3-btn">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                {% if form.birth_date.errors %}
+                    <p class="error-message">{{ form.birth_date.errors }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Add other form fields as needed -->
+
+            <button type="submit" class="w3-btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.w3-input[type="date"]').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+</body>
+</html>
