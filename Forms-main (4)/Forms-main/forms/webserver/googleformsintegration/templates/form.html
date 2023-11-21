@@ -181,9 +181,25 @@
             border-top-right-radius: 8px;
             transform: translateY(-50%);
         }
+
         .error-border {
-    border-color: red !important;
-}
+            border-color: red !important;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0;
+            /* Set the width of the scrollbar to 0 */
+        }
+
+        body {
+            overflow: -moz-scrollbars-none;
+            /* Firefox */
+        }
+
+        body {
+            -ms-overflow-style: none;
+            /* Internet Explorer/Edge */
+        }
     </style>
 </head>
 
@@ -198,23 +214,24 @@
             </ul>
         </section>
         {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
 
 
         <form method="post" class="needs-validation" novalidate id="reportForm">
             {% csrf_token %}
 
             <section>
-                <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem abreviaturas).
+                <label for="{{ form.participant_name.id_for_label }}">1 - Nome do participante: (Completo, sem
+                    abreviaturas).
                     <span>*</span>
                 </label>
-                <input type="text" class="w3-input"
-                    name="{{ form.participant_name.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.participant_name.name }}" required
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
@@ -252,8 +269,8 @@
                 <label for="{{ form.clinical_diagnosis.id_for_label }}">5 - Qual seu diagnóstico clínico?
                     <span>*</span>
                 </label>
-                <input type="text" class="w3-input"
-                    name="{{ form.clinical_diagnosis.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.clinical_diagnosis.name }}" required
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
@@ -261,10 +278,10 @@
                     participante:
                     <span>*</span>
                 </label>
-                <input type="text" class="w3-input"
-                    name="{{ form.functional_profile.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.functional_profile.name }}" required
+                    placeholder="Insira sua resposta">
 
-                
+
             </section>
 
             <section>
@@ -277,8 +294,8 @@
             <section>
                 <label for="{{ form.participation_observations.id_for_label }}">8 - Observações da participação do
                     participante neste mês.</label>
-                    <input type="text" class="w3-input"
-                    name="{{ form.participation_observations.name }}" placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.participation_observations.name }}"
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
@@ -295,8 +312,8 @@
                     2,4,6...).
                     <span>*</span>
                 </label>
-                <input type="text" class="w3-input"
-                name="{{ form.attended_dates.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.attended_dates.name }}" required
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
@@ -308,42 +325,42 @@
                 <label for="{{ form.absent_dates.id_for_label }}">12 - Quais as datas que não frequentou este mês:
                     (Exemplo
                     10,12,14...).</label>
-                    <input type="text" class="w3-input"
-                    name="{{ form.absent_dates.name }}" placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.absent_dates.name }}"
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
                 <label for="{{ form.school_name.id_for_label }}">13 - Nome da Escola que o participante estuda:
                     (Observação:
                     Nome completo da escola, sem abreviaturas). <span>*</span></label>
-                    <input type="text" class="w3-input"
-                    name="{{ form.achool_name.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.achool_name.name }}" required
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
                 <label for="{{ form.additional_observations.id_for_label }}">14 - Observações:</label>
-                <input type="text" class="w3-input"
-                name="{{ form.additional_observations.name }}" placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.additional_observations.name }}"
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
                 <label for="{{ form.dropout_list.id_for_label }}">15 - Listar participante desistente:</label>
-                <input type="text" class="w3-input"
-                name="{{ form.dropout_list.name }}" placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.dropout_list.name }}"
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
                 <label for="{{ form.dropout_reason.id_for_label }}">16 - Motivo da desistência:</label>
-                <input type="text" class="w3-input"
-                name="{{ form.dropout_reason.name }}" placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.dropout_reason.name }}"
+                    placeholder="Insira sua resposta">
             </section>
 
             <section>
                 <label for="{{ form.responding_teacher_name.id_for_label }}">17 - Nome do professor que respondeu.
                     <span>*</span>
                 </label>
-                <input type="text" class="w3-input"
-                name="{{ form.responding_teacher_name.name }}" required placeholder="Insira sua resposta">
+                <input type="text" class="w3-input" name="{{ form.responding_teacher_name.name }}" required
+                    placeholder="Insira sua resposta">
             </section>
 
             <button type="submit" class="w3-btn">Submit</button>{% if form.errors %}
@@ -378,89 +395,89 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById('reportForm');
-    const requiredFields = form.querySelectorAll('[required]');
+            const form = document.getElementById('reportForm');
+            const requiredFields = form.querySelectorAll('[required]');
 
-    form.addEventListener('submit', function (event) {
-        let isFormValid = true;
+            form.addEventListener('submit', function (event) {
+                let isFormValid = true;
 
-        // Check if any required field is empty
-        requiredFields.forEach((field) => {
-            let isEmpty = false;
+                // Check if any required field is empty
+                requiredFields.forEach((field) => {
+                    let isEmpty = false;
 
-            if (field.type === 'checkbox' || field.type === 'radio') {
-                // For checkboxes and radio buttons, check if any in the group is checked
-                const group = document.getElementsByName(field.name);
-                isEmpty = !Array.from(group).some((radio) => radio.checked);
-            } else {
-                isEmpty = field.value.trim() === '';
-            }
+                    if (field.type === 'checkbox' || field.type === 'radio') {
+                        // For checkboxes and radio buttons, check if any in the group is checked
+                        const group = document.getElementsByName(field.name);
+                        isEmpty = !Array.from(group).some((radio) => radio.checked);
+                    } else {
+                        isEmpty = field.value.trim() === '';
+                    }
 
-            const section = field.closest('section'); // Find the closest section element
+                    const section = field.closest('section'); // Find the closest section element
 
-            if (isEmpty) {
-                isFormValid = false;
-                section.style.border = '1px solid #d93025'; // Change border color of the section
+                    if (isEmpty) {
+                        isFormValid = false;
+                        section.style.border = '1px solid #d93025'; // Change border color of the section
 
-                // Display error message for required fields
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'errorlist';
-                errorMessage.innerText = 'Questão obrigatória';
+                        // Display error message for required fields
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'errorlist';
+                        errorMessage.innerText = 'Questão obrigatória';
 
-                // Check if an error message already exists
-                const existingError = section.querySelector('.errorlist');
-                if (!existingError) {
-                    section.appendChild(errorMessage);
+                        // Check if an error message already exists
+                        const existingError = section.querySelector('.errorlist');
+                        if (!existingError) {
+                            section.appendChild(errorMessage);
+                        }
+                    }
+                });
+
+                // Prevent form submission if any required field is empty
+                if (!isFormValid) {
+                    event.preventDefault();
                 }
-            }
+            });
+
+            requiredFields.forEach((field) => {
+                field.addEventListener('blur', () => {
+                    const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
+                        ? !field.checked
+                        : field.value.trim() === '';
+
+                    const section = field.closest('section'); // Find the closest section element
+
+                    section.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
+
+                    // Display error message for required fields (except radios)
+                    if (isEmpty && field.type !== 'radio') {
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'errorlist';
+                        errorMessage.innerText = 'Field required';
+
+                        // Check if an error message already exists
+                        const existingError = section.querySelector('.errorlist');
+                        if (!existingError) {
+                            section.appendChild(errorMessage);
+                        }
+                    } else {
+                        // Remove error message when field is not empty
+                        const existingError = section.querySelector('.errorlist');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+                    }
+                });
+
+                field.addEventListener('focus', () => {
+                    const section = field.closest('section'); // Find the closest section element
+                    section.style.border = '1px solid #4285f4';
+
+                });
+
+                // Add transition effect for a smoother visual experience
+                field.style.transition = 'border 0.3s ease-in-out';
+            });
         });
-
-        // Prevent form submission if any required field is empty
-        if (!isFormValid) {
-            event.preventDefault();
-        }
-    });
-
-    requiredFields.forEach((field) => {
-        field.addEventListener('blur', () => {
-            const isEmpty = (field.type === 'checkbox' || field.type === 'radio')
-                ? !field.checked
-                : field.value.trim() === '';
-
-            const section = field.closest('section'); // Find the closest section element
-
-            section.style.border = isEmpty ? '1px solid #d93025' : '1px solid #ddd';
-
-            // Display error message for required fields (except radios)
-            if (isEmpty && field.type !== 'radio') {
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'errorlist';
-                errorMessage.innerText = 'Field required';
-
-                // Check if an error message already exists
-                const existingError = section.querySelector('.errorlist');
-                if (!existingError) {
-                    section.appendChild(errorMessage);
-                }
-            } else {
-                // Remove error message when field is not empty
-                const existingError = section.querySelector('.errorlist');
-                if (existingError) {
-                    existingError.remove();
-                }
-            }
-        });
-
-        field.addEventListener('focus', () => {
-            const section = field.closest('section'); // Find the closest section element
-            section.style.border = '1px solid #4285f4';
-
-        });
-
-        // Add transition effect for a smoother visual experience
-        field.style.transition = 'border 0.3s ease-in-out';
-    });
-});
 
 
         function clearForm() {
@@ -517,21 +534,21 @@
         });
 
         function troca(targetId, borderColorChangeId) {
-    var targetElement = document.getElementById(targetId);
-    var borderColorChangeElement = document.getElementById(borderColorChangeId);
+            var targetElement = document.getElementById(targetId);
+            var borderColorChangeElement = document.getElementById(borderColorChangeId);
 
-    if (targetElement && borderColorChangeElement) {
-        if (targetElement.value.trim() === '') {
-            // If the input is empty, set both the input and section border color to red
-            targetElement.style.border = '1px solid red';
-            borderColorChangeElement.style.borderColor = 'red';
-        } else {
-            // If the input is not empty, reset both the input and section border color
-            targetElement.style.border = '1px solid #ddd'; // Default color
-            borderColorChangeElement.style.borderColor = ''; // Empty string resets it to default
+            if (targetElement && borderColorChangeElement) {
+                if (targetElement.value.trim() === '') {
+                    // If the input is empty, set both the input and section border color to red
+                    targetElement.style.border = '1px solid red';
+                    borderColorChangeElement.style.borderColor = 'red';
+                } else {
+                    // If the input is not empty, reset both the input and section border color
+                    targetElement.style.border = '1px solid #ddd'; // Default color
+                    borderColorChangeElement.style.borderColor = ''; // Empty string resets it to default
+                }
+            }
         }
-    }
-}
 
 
     </script>

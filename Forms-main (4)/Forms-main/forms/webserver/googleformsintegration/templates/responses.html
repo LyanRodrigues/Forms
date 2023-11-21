@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
 
     <style>
-       body {
+        html,
+        body {
+            transition: background-color 0.5s ease;
+        }
+
+        body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,50 +24,59 @@
         }
 
         #sidebar {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            width: 250px;
+            background-color: #f6e5fc;
+            color: #ffffff;
+            width: 450px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             height: 100%;
             position: fixed;
+            transition: background-color 0.5s ease;
+            padding-left: 40px;
         }
 
         #content {
             flex: 1;
             padding: 0px;
-            margin-left: 250px;
-            background-color: #2c3e50;
+            margin-left: 450px;
+            background-color: #f6e5fc;
+            transition: background-color 0.5s ease;
+        }
+
+        /* ... (rest of the styles remain unchanged) ... */
+
+
+        h2 {
+            color: rgb(103, 58, 183);
         }
 
         h1 {
-            color: #c7c7c7;
-            text-align: center;
+            color: #2c043b;
             margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        h2 {
-            color: rgb(10, 127, 163) ;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         ul {
+            padding-left: 0;
+            margin-top: 5px;
             list-style: none;
-            padding: 0;
+            padding-right: 10px;
         }
 
         li {
-            border: 1px solid #bdc3c7;
+            background-color: rgb(255, 255, 255);
+            border-color: rgb(218, 220, 224);
             border-radius: 8px;
             margin-bottom: 10px;
             padding: 15px;
-            background-color: #fff;
+            background-color: #ffffff;
             transition: background-color 0.3s ease-in-out;
             cursor: pointer;
-            color: #34495e;
+            color: rgb(32, 33, 36);
             font-weight: 500;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         li:hover {
@@ -83,31 +97,31 @@
         .details {
             display: none;
             margin-top: 0px;
-            background-color:#2c3e50;
+            background-color: #f6e5fc;
             padding: 20px;
-            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
             border-radius: 8px;
         }
 
         li.clicked {
-            background-color: rgb(10, 127, 163);
-            color: #ecf0f1;
+            border: 1px solid rgb(103, 58, 183);
+            outline: none;
         }
 
         li.clicked:hover {
-            background-color:rgb(10, 114, 146);
+            background-color: rgb(207, 207, 207);
         }
 
         li.clicked .details {
             border-top: 2px solid #2c3e50;
             display: block;
         }
+
         section {
-            background-color: rgb(255, 255, 255);
-            border-color: rgb(218, 220, 224);
+            background-color: #ffffff;
+            border-color: #ecf0f1;
             border-radius: 8px;
             border-width: 1px;
-            color: rgb(32, 33, 36);
+            color: #2c3e50;
             margin-top: 12px;
             margin-bottom: 12px;
             padding-bottom: 16px;
@@ -118,21 +132,278 @@
             position: relative;
         }
 
-        strong{
+        strong {
             margin-bottom: 0px;
             margin-top: 10px;
         }
+
         .separator {
             width: 100%;
             margin: 8px auto;
             border-top: 1px solid #ddd;
         }
+
+        .dark-mode {
+            background-color: #34495e;
+            /* Darker blue color for dark mode */
+            color: #ecf0f1;
+            /* Lighter text color for dark mode */
+        }
+
+        .dark-mode #content {
+            background-color: #2c3e50;
+            /* Dark background color for dark mode */
+            color: #ecf0f1;
+            /* Lighter text color for dark mode */
+        }
+
+        .dark-mode li {
+            background-color: #2c3e50;
+            /* Dark background color for list items in dark mode */
+            color: #ecf0f1;
+            /* Lighter text color for list items in dark mode */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-mode li:hover {
+            background-color: #34495e;
+            /* Slightly lighter color on hover in dark mode */
+        }
+
+        .dark-mode strong {
+            color: #ecf0f1;
+            /* Lighter text color for strong elements in dark mode */
+        }
+
+        .dark-mode .details {
+            background-color: #34495e;
+            /* Dark background color for details in dark mode */
+        }
+
+        .dark-mode .details section {
+            background-color: #2c3e50;
+            /* Dark background color for section headers in dark mode */
+            color: #ecf0f1;
+            /* Lighter text color for section headers in dark mode */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+        }
+
+        .dark-mode .details .separator {
+            border-top: 1px solid #ecf0f1;
+            /* Lighter separator color in dark mode */
+        }
+
+        .dark-mode button {
+            background-color: #3498db;
+            /* Darker blue color for buttons in dark mode */
+            color: #ffffff;
+            /* Lighter text color for buttons in dark mode */
+        }
+
+        .dark-mode #sidebar {
+            background-color: #34495e;
+        }
+
+        .dark-mode section {
+            color: white;
+            background-color: #2c3e50;
+        }
+
+        .dark-mode h1 {
+            color: #8eb6f7;
+        }
+
+        .dark-mode .linha {
+            background-color: #3498db;
+        }
+
+        .linha {
+            background-color: rgb(103, 58, 183);
+            height: 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transform: translateY(-50%);
+        }
+
+        #sidebar {
+            overflow-y: auto;
+        }
+
+        ul {
+            max-height: calc(100vh - 120px);
+            /* Adjust the height as needed */
+            overflow-y: auto;
+        }
+
+        /* Custom scrollbar styles */
+        #sidebar::-webkit-scrollbar {
+            width: 8px;
+            transition: background-color 0.5s ease;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb {
+            background-color: rgb(103, 58, 183);
+            /* Scrollbar thumb color */
+            border-radius: 4px;
+            transition: background-color 0.5s ease;
+        }
+
+        #sidebar::-webkit-scrollbar-track {
+            background-color: #f6e5fc;
+            /* Scrollbar track color */
+            transition: background-color 0.5s ease;
+        }
+
+        ul::-webkit-scrollbar {
+            width: 8px;
+            transition: background-color 0.5s ease;
+        }
+
+        ul::-webkit-scrollbar-thumb {
+            background-color: rgb(103, 58, 183);
+            /* Scrollbar thumb color */
+            border-radius: 4px;
+            transition: background-color 0.5s ease;
+        }
+
+        ul::-webkit-scrollbar-track {
+            background-color: #f6e5fc;
+            /* Scrollbar track color */
+            transition: background-color 0.5s ease;
+        }
+
+
+        .dark-mode #sidebar::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            /* Scrollbar thumb color */
+            border-radius: 4px;
+        }
+
+        .dark-mode #sidebar::-webkit-scrollbar-track {
+            background-color: #34495e;
+            /* Scrollbar track color */
+        }
+
+        .dark-mode ul::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            /* Scrollbar thumb color */
+            border-radius: 4px;
+        }
+
+        .dark-mode ul::-webkit-scrollbar-track {
+            background-color: #34495e;
+            /* Scrollbar track color */
+        }
+
+        .w3-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            cursor: text;
+        }
+
+        /* Add this CSS code to enhance the dark mode button appearance */
+        .w3-btn {
+            background-color: rgb(103, 58, 183);
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .w3-btn:hover {
+            background-color: rgb(184, 143, 255);
+        }
+
+        .dark-mode .w3-btn {
+            background-color: #3498db;
+        }
+
+        .dark-mode .w3-btn:hover {
+            background-color: #82c9f8;
+        }
+
+        .dark-mode .w3-btn::before {
+            content: '\2600';
+            /* Unicode character for sun */
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .w3-btn::before {
+            content: '\1F311';
+            /* Unicode character for electric light bulb */
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .dark-mode li.clicked {
+            border: 1px solid #3498db;
+            outline: none;
+        }
+
+        .dark-mode h2 {
+            color: #3498db;
+        }
+
+        /* Custom scrollbar styles for body */
+        body::-webkit-scrollbar {
+            width: 0;
+            /* Set the width of the scrollbar to 0 */
+        }
+
+        body {
+            overflow: -moz-scrollbars-none;
+            /* Firefox */
+        }
+
+        body {
+            -ms-overflow-style: none;
+            /* Internet Explorer/Edge */
+        }
     </style>
+    <script>
+        function toggleDarkMode() {
+            var body = document.body;
+            var sidebar = document.getElementById('sidebar');
+            var content = document.getElementById('content');
+
+            // Toggle the 'dark-mode' class on the body
+            body.classList.toggle('dark-mode');
+
+            // Toggle the 'dark-mode' class on the sidebar
+            sidebar.classList.toggle('dark-mode');
+
+            // Toggle the 'dark-mode' class on the content
+            content.classList.toggle('dark-mode');
+        }
+
+    </script>
 </head>
 
 <body>
     <div id="sidebar">
-        <h1>Form Responses</h1>
+        <header>
+            <section>
+                <ul class="linha"></ul>
+                <h1>Respostas Relatório Paradesporto Escolar - Fevereiro 2023</h1>
+                <ul>Relatório de frequência das aulas presenciais. <br></ul>
+            </section>
+        </header>
         <ul>
             {% for response in responses %}
             <li class="response-item" data-id="{{ response.id }}">
@@ -143,7 +414,7 @@
             </li>
             {% endfor %}
         </ul>
-        <button onclick="toggleMode()">Toggle Mode</button>
+        <button class="w3-btn" onclick="toggleDarkMode()">Toggle dark mode</button>
     </div>
 
     <div id="content">
@@ -152,39 +423,56 @@
             <div class="details" id="details-{{ response.id }}">
                 <section class="personal-info">
                     <h2>Personal Information</h2>
-                    <strong>Name:</strong> {{ response.participant_name }}<hr class="separator">
-                    <strong>Birth Date:</strong> {{ response.birth_date }}<hr class="separator">
-                    <strong>Gender:</strong> {{ response.get_gender_display }}<hr class="separator">
-                    <strong>Disability:</strong> {{ response.get_participant_disability_display }}<hr class="separator">
+                    <strong>Name:</strong> {{ response.participant_name }}
+                    <hr class="separator">
+                    <strong>Birth Date:</strong> {{ response.birth_date }}
+                    <hr class="separator">
+                    <strong>Gender:</strong> {{ response.get_gender_display }}
+                    <hr class="separator">
+                    <strong>Disability:</strong> {{ response.get_participant_disability_display }}
+                    <hr class="separator">
                 </section>
 
                 <section class="medical-info">
                     <h2>Medical Information</h2>
-                    <strong>Clinical Diagnosis:</strong> {{ response.clinical_diagnosis }}<hr class="separator">
-                    <strong>Functional Profile:</strong> {{ response.functional_profile }}<hr class="separator">
+                    <strong>Clinical Diagnosis:</strong> {{ response.clinical_diagnosis }}
+                    <hr class="separator">
+                    <strong>Functional Profile:</strong> {{ response.functional_profile }}
+                    <hr class="separator">
                 </section>
 
                 <section class="participation-info">
                     <h2>Participation Information</h2>
-                    <strong>Participation Modalities:</strong> {{ response.participation_modalities }}<hr class="separator">
-                    <strong>Participation Observations:</strong> {{ response.participation_observations }}<hr class="separator">
-                    <strong>Attendance Frequency:</strong> {{ response.attendance_frequency }}<hr class="separator">
-                    <strong>Attended Dates:</strong> {{ response.attended_dates }}<hr class="separator">
-                    <strong>Absences Count:</strong> {{ response.absences_count }}<hr class="separator">
-                    <strong>Absent Dates:</strong> {{ response.absent_dates }}<hr class="separator">
+                    <strong>Participation Modalities:</strong> {{ response.participation_modalities }}
+                    <hr class="separator">
+                    <strong>Participation Observations:</strong> {{ response.participation_observations }}
+                    <hr class="separator">
+                    <strong>Attendance Frequency:</strong> {{ response.attendance_frequency }}
+                    <hr class="separator">
+                    <strong>Attended Dates:</strong> {{ response.attended_dates }}
+                    <hr class="separator">
+                    <strong>Absences Count:</strong> {{ response.absences_count }}
+                    <hr class="separator">
+                    <strong>Absent Dates:</strong> {{ response.absent_dates }}
+                    <hr class="separator">
                 </section>
 
                 <section class="school-info">
                     <h2>School Information</h2>
-                    <strong>School Name:</strong> {{ response.school_name }}<hr class="separator">
+                    <strong>School Name:</strong> {{ response.school_name }}
+                    <hr class="separator">
                 </section>
 
                 <section class="additional-info">
                     <h2>Additional Information</h2>
-                    <strong>Additional Observations:</strong> {{ response.additional_observations }}<hr class="separator">
-                    <strong>Dropout List:</strong> {{ response.dropout_list }}<hr class="separator">
-                    <strong>Dropout Reason:</strong> {{ response.dropout_reason }}<hr class="separator">
-                    <strong>Responding Teacher Name:</strong> {{ response.responding_teacher_name }}<hr class="separator">
+                    <strong>Additional Observations:</strong> {{ response.additional_observations }}
+                    <hr class="separator">
+                    <strong>Dropout List:</strong> {{ response.dropout_list }}
+                    <hr class="separator">
+                    <strong>Dropout Reason:</strong> {{ response.dropout_reason }}
+                    <hr class="separator">
+                    <strong>Responding Teacher Name:</strong> {{ response.responding_teacher_name }}
+                    <hr class="separator">
                 </section>
             </div>
             {% endfor %}
@@ -216,7 +504,7 @@
                 });
             });
         });
-        
+
     </script>
 </body>
 
