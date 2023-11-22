@@ -26,7 +26,7 @@
         #sidebar {
             background-color: #f6e5fc;
             color: #ffffff;
-            width: 450px;
+            width: 25%;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -39,7 +39,7 @@
         #content {
             flex: 1;
             padding: 0px;
-            margin-left: 450px;
+            margin-left: 25%;
             background-color: #f6e5fc;
             transition: background-color 0.5s ease;
         }
@@ -100,6 +100,7 @@
             background-color: #f6e5fc;
             padding: 20px;
             border-radius: 8px;
+            float: right;
         }
 
         li.clicked {
@@ -124,17 +125,13 @@
             color: #2c3e50;
             margin-top: 12px;
             margin-bottom: 12px;
+            margin-right: 20px;
             padding-bottom: 16px;
             padding-left: 24px;
             padding-right: 24px;
             padding-top: 22px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-        }
-
-        strong {
-            margin-bottom: 0px;
-            margin-top: 10px;
         }
 
         .separator {
@@ -375,6 +372,56 @@
             -ms-overflow-style: none;
             /* Internet Explorer/Edge */
         }
+
+        .column {
+            float: left;
+            width: 33%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .details {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .details:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 1160px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+
+            h2,
+            strong,
+            hr {
+                width: 100%;
+                float: none;
+            }
+        }
+
+        /* Style the counter cards */
+        .details section {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #ffffff;
+            height: 500px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        strong {
+            margin-bottom: 0px;
+            margin-top: 10px;
+        }
     </style>
     <script>
         function toggleDarkMode() {
@@ -421,59 +468,69 @@
         <div class="details-container">
             {% for response in responses %}
             <div class="details" id="details-{{ response.id }}">
-                <section class="personal-info">
-                    <h2>Personal Information</h2>
-                    <strong>Name:</strong> {{ response.participant_name }}
-                    <hr class="separator">
-                    <strong>Birth Date:</strong> {{ response.birth_date }}
-                    <hr class="separator">
-                    <strong>Gender:</strong> {{ response.get_gender_display }}
-                    <hr class="separator">
-                    <strong>Disability:</strong> {{ response.get_participant_disability_display }}
-                    <hr class="separator">
-                </section>
+                <div class="column">
+                    <section class="personal-info">
+                        <h2>Personal Information</h2>
+                        <strong>Name:</strong> {{ response.participant_name }}
+                        <hr class="separator">
+                        <strong>Birth Date:</strong> {{ response.birth_date }}
+                        <hr class="separator">
+                        <strong>Gender:</strong> {{ response.get_gender_display }}
+                        <hr class="separator">
+                        <strong>Disability:</strong> {{ response.get_participant_disability_display }}
+                        <hr class="separator">
+                    </section>
+                </div>
 
-                <section class="medical-info">
-                    <h2>Medical Information</h2>
-                    <strong>Clinical Diagnosis:</strong> {{ response.clinical_diagnosis }}
-                    <hr class="separator">
-                    <strong>Functional Profile:</strong> {{ response.functional_profile }}
-                    <hr class="separator">
-                </section>
+                <div class="column">
+                    <section class="medical-info">
+                        <h2>Medical Information</h2>
+                        <strong>Clinical Diagnosis:</strong> {{ response.clinical_diagnosis }}
+                        <hr class="separator">
+                        <strong>Functional Profile:</strong> {{ response.functional_profile }}
+                        <hr class="separator">
+                    </section>
+                </div>
 
-                <section class="participation-info">
-                    <h2>Participation Information</h2>
-                    <strong>Participation Modalities:</strong> {{ response.participation_modalities }}
-                    <hr class="separator">
-                    <strong>Participation Observations:</strong> {{ response.participation_observations }}
-                    <hr class="separator">
-                    <strong>Attendance Frequency:</strong> {{ response.attendance_frequency }}
-                    <hr class="separator">
-                    <strong>Attended Dates:</strong> {{ response.attended_dates }}
-                    <hr class="separator">
-                    <strong>Absences Count:</strong> {{ response.absences_count }}
-                    <hr class="separator">
-                    <strong>Absent Dates:</strong> {{ response.absent_dates }}
-                    <hr class="separator">
-                </section>
+                <div class="column">
+                    <section class="participation-info">
+                        <h2>Participation Information</h2>
+                        <strong>Participation Modalities:</strong> {{ response.participation_modalities }}
+                        <hr class="separator">
+                        <strong>Participation Observations:</strong> {{ response.participation_observations }}
+                        <hr class="separator">
+                        <strong>Attendance Frequency:</strong> {{ response.attendance_frequency }}
+                        <hr class="separator">
+                        <strong>Attended Dates:</strong> {{ response.attended_dates }}
+                        <hr class="separator">
+                        <strong>Absences Count:</strong> {{ response.absences_count }}
+                        <hr class="separator">
+                        <strong>Absent Dates:</strong> {{ response.absent_dates }}
+                        <hr class="separator">
+                    </section>
+                </div>
 
-                <section class="school-info">
-                    <h2>School Information</h2>
-                    <strong>School Name:</strong> {{ response.school_name }}
-                    <hr class="separator">
-                </section>
+                <div class="column">
+                    <section class="school-info">
+                        <h2>School Information</h2>
+                        <strong>School Name:</strong> {{ response.school_name }}
+                        <hr class="separator">
+                    </section>
+                </div>
 
-                <section class="additional-info">
-                    <h2>Additional Information</h2>
-                    <strong>Additional Observations:</strong> {{ response.additional_observations }}
-                    <hr class="separator">
-                    <strong>Dropout List:</strong> {{ response.dropout_list }}
-                    <hr class="separator">
-                    <strong>Dropout Reason:</strong> {{ response.dropout_reason }}
-                    <hr class="separator">
-                    <strong>Responding Teacher Name:</strong> {{ response.responding_teacher_name }}
-                    <hr class="separator">
-                </section>
+                <div class="column">
+                    <section class="additional-info">
+                        <h2>Additional Information</h2>
+                        <strong>Additional Observations:</strong> {{ response.additional_observations }}
+                        <hr class="separator">
+                        <strong>Dropout List:</strong> {{ response.dropout_list }}
+                        <hr class="separator">
+                        <strong>Dropout Reason:</strong> {{ response.dropout_reason }}
+                        <hr class="separator">
+                        <strong>Responding Teacher Name:</strong> {{ response.responding_teacher_name }}
+                        <hr class="separator">
+                    </section>
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -484,27 +541,34 @@
             var responseItems = document.querySelectorAll('.response-item');
             var detailsContainer = document.querySelector('.details-container');
 
+            function showDetails(responseId) {
+                var detailsToShow = document.getElementById('details-' + responseId);
+
+                responseItems.forEach(function (item) {
+                    item.classList.remove('clicked');
+                });
+
+                detailsContainer.querySelectorAll('.details').forEach(function (details) {
+                    details.style.display = 'none';
+                });
+
+                detailsToShow.style.display = 'block';
+            }
+
             responseItems.forEach(function (item) {
                 item.addEventListener('click', function () {
                     var responseId = this.getAttribute('data-id');
-                    var detailsToShow = document.getElementById('details-' + responseId);
-
-                    responseItems.forEach(function (otherItem) {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('clicked');
-                        }
-                    });
-
-                    detailsContainer.querySelectorAll('.details').forEach(function (details) {
-                        details.style.display = 'none';
-                    });
-
                     this.classList.toggle('clicked');
-                    detailsToShow.style.display = 'block';
+                    showDetails(responseId);
                 });
             });
-        });
 
+            // Show details for the first response by default
+            if (responseItems.length > 0) {
+                var defaultResponseId = responseItems[0].getAttribute('data-id');
+                showDetails(defaultResponseId);
+            }
+        });
     </script>
 </body>
 
